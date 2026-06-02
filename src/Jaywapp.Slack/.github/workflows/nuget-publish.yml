@@ -1,0 +1,82 @@
+﻿name: NuGet Publish
+
+on:
+  push:
+    tags:
+      - 'v*'
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Package version (e.g. 0.1.0)'
+        required: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.x'
+
+      - name: Compute version
+        id: meta
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            TAG="${{ github.event.release.tag_name }}"
+          elif [ "${{ github.event_name }}" = "push" ]; then
+            REF="${{ github.ref }}"
+            TAG="${REF#refs/tags/}"
+          else
+            TAG="${{ inputs.version }}"
+          fi
+          VER="${TAG#v}"
+          if [ -n "$VER" ]; then
+            echo "Using version: $VER"
+          else
+            echo "No version provided; fallback to csproj version"
+          fi
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+
+      - name: Restore
+        run: dotnet restore Jaywapp.Slack.csproj
+
+      - name: Pack
+        run: |
+          if [ -n "${{ steps.meta.outputs.version }}" ]; then
+            dotnet pack Jaywapp.Slack.csproj -c Release -o out \
+              -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg \
+              -p:Version=${{ steps.meta.outputs.version }}
+          else
+            dotnet pack Jaywapp.Slack.csproj -c Release -o out \
+              -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+          fi
+
+      - name: Validate NuGet API key
+        shell: bash
+        run: |
+          if [ -z "${NUGET_API_KEY}" ]; then
+            echo "::error::Missing NUGET_API_KEY secret. Add it in Repo Settings > Secrets and variables > Actions.";
+            exit 1;
+          fi
+
+      - name: Push packages
+        shell: bash
+        run: |
+          shopt -s nullglob
+          for f in out/*.nupkg; do
+            echo "Pushing $f"
+            dotnet nuget push "$f" --skip-duplicate -k "${NUGET_API_KEY}" -s https://api.nuget.org/v3/index.json
+          done
+          for f in out/*.snupkg; do
+            echo "Pushing $f"
+            dotnet nuget push "$f" --skip-duplicate -k "${NUGET_API_KEY}" -s https://api.nuget.org/v3/index.json
+          done

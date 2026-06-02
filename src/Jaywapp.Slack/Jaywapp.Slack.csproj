@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+  </ItemGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>0.1.0</Version>
+    <RepositoryUrl>https://github.com/jaywapp/Jaywapp.Slack</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>Slack;Jaywapp;WebAPI;Client</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <Company>Jaywapp</Company>
+    <IncludeSymbols>true</IncludeSymbols>
+    <Description>Slack Web API client library for .NET Standard 2.1.</Description>
+    <PackageProjectUrl>https://github.com/jaywapp/Jaywapp.Slack</PackageProjectUrl>
+    <Authors>Jaywapp</Authors>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageId>Jaywapp.Slack</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="icon.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+</Project>
