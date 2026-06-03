@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\junyoung\Downloads\Release (1)\Pentacube.Manufacture.Canvas.Geometry.dll-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C07181F-59D8-475B-9D43-BB1F479F9DDE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Pentacube.Manufacture.Canvas.Geometry</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Pentacube.Manufacture.Canvas.Geometry</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MathNet.Spatial">
+      <HintPath>lib\MathNet.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Pentacube.Graphics.Geometry">
+      <HintPath>lib\Pentacube.Graphics.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="SkiaSharp">
+      <HintPath>lib\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Service\SKPathDrawingBuilder.cs" />
+    <Compile Include="Model\Layer\SkiaLayer.cs" />
+    <Compile Include="Model\Geometry\SkiaArc.cs" />
+    <Compile Include="Model\Geometry\SkiaCircle.cs" />
+    <Compile Include="Model\Geometry\SkiaLine.cs" />
+    <Compile Include="Model\Geometry\SkiaPolygon.cs" />
+    <Compile Include="Model\Geometry\SkiaRect.cs" />
+    <Compile Include="Model\Geometry\Base\SkiaGeom.cs" />
+    <Compile Include="Model\Geometry\Base\SkiaSegment.cs" />
+    <Compile Include="Model\Etc\ArcElement.cs" />
+    <Compile Include="Model\Etc\Element.cs" />
+    <Compile Include="Helper\ColorConverter.cs" />
+    <Compile Include="Helper\EnumerableHelper.cs" />
+    <Compile Include="Helper\GeometryOperator.cs" />
+    <Compile Include="Event\ColorChangedEventArgs.cs" />
+    <Compile Include="Event\FlipEventArgs.cs" />
+    <Compile Include="Event\FlipOriginEventArgs.cs" />
+    <Compile Include="Event\OffsetEventArgs.cs" />
+    <Compile Include="Event\RotateEventArgs.cs" />
+    <Compile Include="Event\RotateOriginEventArgs.cs" />
+    <Compile Include="eFlipDirection.cs" />
+    <Compile Include="Interface\IPanZoom.cs" />
+    <Compile Include="Interface\ISkiaDrawable.cs" />
+    <Compile Include="Interface\ISkiaGeom.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

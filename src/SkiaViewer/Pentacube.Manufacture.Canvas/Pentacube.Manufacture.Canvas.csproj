@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--Project was exported from assembly: C:\Users\junyoung\Downloads\Release (1)\Pentacube.Manufacture.Canvas.exe-->
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A2B3FB8-E0FE-4E37-BBF2-FA0FB62D6AAE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>Pentacube.Manufacture.Canvas</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>Pentacube.Manufacture.Canvas</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK">
+      <HintPath>lib\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl">
+      <HintPath>lib\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Pentacube.Graphics.Geometry">
+      <HintPath>lib\Pentacube.Graphics.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Pentacube.Infrastructure">
+      <HintPath>lib\Pentacube.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Pentacube.Manufacture.Canvas.Geometry">
+      <HintPath>lib\Pentacube.Manufacture.Canvas.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Prism">
+      <HintPath>lib\Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="ReactiveUI">
+      <HintPath>lib\ReactiveUI.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp">
+      <HintPath>lib\SkiaSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SkiaSharp.Views.Desktop.Common">
+      <HintPath>lib\SkiaSharp.Views.Desktop.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Reactive">
+      <HintPath>lib\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SkiaCanvasViewModel.cs" />
+    <Compile Include="SkiaCanvasView.xaml.cs">
+      <DependentUpon>skiacanvasview.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Control\GraphicsCanvas.cs" />
+    <Compile Include="Service\PanAndZoomEventWatcher.cs" />
+    <Compile Include="Service\ReactivePanZoom.cs" />
+    <Compile Include="Service\RenderingTimer.cs" />
+    <Compile Include="Service\SKDrawer.cs" />
+    <Compile Include="Interface\I2DCanvasCoordinates.cs" />
+    <Compile Include="Interface\IPanAndZoomTarget.cs" />
+    <Compile Include="Interface\IPanZoomCanvas.cs" />
+    <Compile Include="Interface\IRenderData.cs" />
+    <Compile Include="Helper\PanZoomHelper.cs" />
+    <Compile Include="Helper\RectangleHelper.cs" />
+    <Compile Include="Event\CanvasMousePositionChangedEventArgs.cs" />
+    <Compile Include="Event\DrawEventArgs.cs" />
+    <Compile Include="Event\RenderingEventArgs.cs" />
+    <Compile Include="Control\SKCustomControl.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="skiacanvasview.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

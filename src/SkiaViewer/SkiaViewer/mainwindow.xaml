@@ -1,0 +1,27 @@
+<Window x:Class="SkiaViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SkiaViewer"
+        xmlns:canvas="clr-namespace:Pentacube.Manufacture.Canvas;assembly=Pentacube.Manufacture.Canvas"
+        xmlns:view="clr-namespace:SkiaViewer.View"
+        Title="MainWindow" Height="450" Width="800">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left">
+      <Button Click="ZoomFit" Margin="5, 0, 5, 0" Content="ZoomFit"/>
+      <Button Click="Test" Margin="5, 0, 5, 0" Content="Sample"/>
+      <Button Click="LoadGerbers" Margin="5, 0, 5, 0" Content="Gerber File"/>
+    </StackPanel>
+    <canvas:SkiaCanvasView x:Name="_canvas" Grid.Row="1" Grid.Column="0"/>
+    <view:LayersView x:Name="_layersView" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1"/>
+  </Grid>
+</Window>

@@ -1,0 +1,48 @@
+<UserControl x:Class="SkiaViewer.View.LayersView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ig="http://schemas.infragistics.com/xaml"
+             xmlns:igWPF="http://schemas.infragistics.com/xaml/wpf">
+  <Grid>
+    <XamTreeGrid Grid.Row="1" SelectedDataItemsScope="RecordsOrCells" ScrollingMode="Deferred"
+                 Control.HorizontalContentAlignment="Stretch"
+                 DataSource="{Binding Layers, UpdateSourceTrigger=PropertyChanged}"
+                 ActiveDataItem="{Binding Active, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+      <XamTreeGrid.ViewSettings>
+        <TreeViewSettings TreeFieldName="Name"/>
+      </XamTreeGrid.ViewSettings>
+      <DataPresenterBase.FieldSettings>
+        <FieldSettings AllowRecordFiltering="True" FilterOperatorDefaultValue="Contains" LabelTextAlignment="Center"
+                       DataValueChangedNotificationsActive="True" DataItemUpdateTrigger="OnCellValueChange"
+                       DataValueChangedScope="AllAllocatedRecords"/>
+      </DataPresenterBase.FieldSettings>
+      <DataPresenterBase.FieldLayoutSettings>
+        <FieldLayoutSettings AutoGenerateFields="False" AutoFitMode="OnlyWithVisibleStarFields"
+                             RecordSelectorLocation="LeftOfCellArea" SelectionTypeCell="Extended" SelectionTypeRecord="Extended"
+                             SelectionTypeField="Extended"/>
+      </DataPresenterBase.FieldLayoutSettings>
+      <DataPresenterBase.FieldLayouts>
+        <FieldLayout Key="Layer">
+          <CheckBoxField Name="IsChecked" Label="선택" Width="Auto"/>
+          <TextField Name="Name" Label="Name" Width="1*" AllowEdit="False"/>
+          <TemplateField Label="Color" Name="Color" Width="45">
+            <Field.Settings>
+              <FieldSettings AllowRecordFiltering="False" DataItemUpdateTrigger="OnCellValueChange"/>
+            </Field.Settings>
+            <TemplateField.DisplayTemplate>
+              <DataTemplate>
+                <XamColorPicker>
+                  <XamColorPicker.SelectedColor>
+                    <TemplateEditorValueBinding Mode="TwoWay"/>
+                  </XamColorPicker.SelectedColor>
+                </XamColorPicker>
+              </DataTemplate>
+            </TemplateField.DisplayTemplate>
+          </TemplateField>
+        </FieldLayout>
+      </DataPresenterBase.FieldLayouts>
+    </XamTreeGrid>
+  </Grid>
+</UserControl>

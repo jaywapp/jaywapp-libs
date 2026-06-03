@@ -1,0 +1,35 @@
+<UserControl x:Class="Pentacube.Manufacture.Canvas.SkiaCanvasView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:wpf="clr-namespace:SkiaSharp.Views.WPF;assembly=SkiaSharp.Views.WPF"
+             xmlns:control="clr-namespace:Pentacube.Manufacture.Canvas.Control"
+             xmlns:service="clr-namespace:Pentacube.Manufacture.Canvas.Service"
+             xmlns:wpf1="clr-namespace:SkiaSharp.Views.WPF">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="Auto"/>
+    </Grid.RowDefinitions>
+    <control:GraphicsCanvas Grid.Row="0" FrameLimit="60"
+                            service:PanAndZoomEventWatcher.Attach="{Binding Drawer.PanZoom.EventWatcher}"
+                            RenderSource="{Binding Drawer}" Paint="{Binding PaintCommand}">
+      <wpf1:SKCustomControl control:GraphicsCanvas.PaintEventName="PaintSurface">
+        <Interaction.Triggers>
+          <EventTrigger EventName="MouseMove">
+            <InvokeCommandAction PassEventArgsToCommand="true" Command="{Binding MouseMoveCommand}"/>
+          </EventTrigger>
+          <EventTrigger EventName="MouseUp">
+            <InvokeCommandAction PassEventArgsToCommand="true" Command="{Binding MouseLeftUpCommand}"/>
+          </EventTrigger>
+          <EventTrigger EventName="MouseDown">
+            <InvokeCommandAction PassEventArgsToCommand="true" Command="{Binding MouseLeftDownCommand}"/>
+          </EventTrigger>
+        </Interaction.Triggers>
+      </wpf1:SKCustomControl>
+    </control:GraphicsCanvas>
+    <TextBlock Grid.Row="1" Text="{Binding Difference}"/>
+  </Grid>
+</UserControl>
