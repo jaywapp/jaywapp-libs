@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamCityMayor", "TeamCityMayor\TeamCityMayor.csproj", "{472F3111-7EBA-4E88-9D03-0BA8F1AC3BE8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{1B120407-9B89-4274-9AED-E8DD59728D51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jaywapp.Infrastructure", "Src\Submodules\Jaywapp.Infrastructure\Jaywapp.Infrastructure.csproj", "{DA1B3BF2-C3B0-4286-A84D-36891FA4F465}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{472F3111-7EBA-4E88-9D03-0BA8F1AC3BE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472F3111-7EBA-4E88-9D03-0BA8F1AC3BE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472F3111-7EBA-4E88-9D03-0BA8F1AC3BE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472F3111-7EBA-4E88-9D03-0BA8F1AC3BE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA1B3BF2-C3B0-4286-A84D-36891FA4F465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1B3BF2-C3B0-4286-A84D-36891FA4F465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1B3BF2-C3B0-4286-A84D-36891FA4F465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1B3BF2-C3B0-4286-A84D-36891FA4F465}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DA1B3BF2-C3B0-4286-A84D-36891FA4F465} = {1B120407-9B89-4274-9AED-E8DD59728D51}
+	EndGlobalSection
+EndGlobal
