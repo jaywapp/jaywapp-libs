@@ -23,6 +23,8 @@ Jaywapp C# 라이브러리 모노레포. 기존에 개별 레포로 분리되어
 
 | 툴 | 설명 |
 |----|------|
+| [Graphic.Component](src/Graphic.Component) | 그래픽 지오메트리 컴포넌트 라이브러리 |
+| [SkiaViewer](src/SkiaViewer) | Skia 기반 그래픽 뷰어 |
 | [TableReader](src/TableReader) | 테이블 읽기 도구 (Prompt / Tests / View) |
 | [TeamCityMayor](src/TeamCityMayor) | TeamCity CI 관리 도구 |
 
@@ -43,6 +45,8 @@ jaywapp-libs/
     ├── Jaywapp.UI/
     ├── Jaywapp.Utility.BuilderWizard/
     ├── Jaywapp.Wpf/
+    ├── Graphic.Component/
+    ├── SkiaViewer/
     ├── TableReader/
     └── TeamCityMayor/
 ```
