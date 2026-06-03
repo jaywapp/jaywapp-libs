@@ -19,6 +19,13 @@ Jaywapp C# 라이브러리 모노레포. 기존에 개별 레포로 분리되어
 | [Jaywapp.Utility.BuilderWizard](src/Jaywapp.Utility.BuilderWizard) | 빌더 위저드 유틸리티 |
 | [Jaywapp.Wpf](src/Jaywapp.Wpf) | WPF 공통 컴포넌트 |
 
+## 툴 목록
+
+| 툴 | 설명 |
+|----|------|
+| [TableReader](src/TableReader) | 테이블 읽기 도구 (Prompt / Tests / View) |
+| [TeamCityMayor](src/TeamCityMayor) | TeamCity CI 관리 도구 |
+
 ## 구조
 
 ```
@@ -35,5 +42,7 @@ jaywapp-libs/
     ├── Jaywapp.Toasket/
     ├── Jaywapp.UI/
     ├── Jaywapp.Utility.BuilderWizard/
-    └── Jaywapp.Wpf/
+    ├── Jaywapp.Wpf/
+    ├── TableReader/
+    └── TeamCityMayor/
 ```
