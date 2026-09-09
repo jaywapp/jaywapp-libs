@@ -10,20 +10,22 @@ namespace Jaywapp.Algorithm.Enumerables
             var result = new List<List<T>>();
             var comparer = defaultComparer ?? EqualityComparer<T>.Default;
 
-            if (count == 0)
+            if (count <= 0)
                 return result;
+
+            var snapshot = items.ToList();
 
             if (count == 1)
             {
-                foreach (var item in items.ToList())
+                foreach (var item in snapshot)
                     result.Add(new List<T>() { item, });
 
                 return result;
             }
 
-            foreach (var item in items.ToList())
+            foreach (var item in snapshot)
             {
-                var others = items.Where(i => !comparer.Equals(i, item)).ToList();
+                var others = snapshot.Where(i => !comparer.Equals(i, item)).ToList();
                 var nexts = Combinate(others, count - 1, defaultComparer);
 
                 foreach (var next in nexts)
